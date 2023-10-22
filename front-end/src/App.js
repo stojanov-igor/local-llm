@@ -20,7 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <h1>File Upload and Chat App</h1>
+      <h1>Text Wise</h1>
       <FileUpload />
       <Chat />
     </div>
