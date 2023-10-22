@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import FileUpload from './components/upload';
+import Chat from './components/chat';
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <h1>File Upload and Chat App</h1>
+      <FileUpload />
+      <Chat />
     </div>
   );
 }
