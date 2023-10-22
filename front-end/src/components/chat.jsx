@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Container, TextField, Button, Grid } from '@mui/material';
+import React, { useState } from 'react';
+import { Container, TextField, Button, Grid, Paper, Typography } from '@mui/material';
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -22,9 +22,21 @@ function Chat() {
         <Grid item xs={12}>
           <div className="chat-container">
             {messages.map((message, index) => (
-              <div key={index} className="chat-message">
-                <strong>{message.user}:</strong> {message.text}
-              </div>
+              <Paper
+                key={index}
+                elevation={3}
+                style={{
+                  padding: '10px',
+                  margin: '10px',
+                  display: 'inline-block',
+                  maxWidth: '70%',
+                  backgroundColor: 'lightgreen',
+                }}
+              >
+                <Typography variant="body1">
+                  <strong>{message.user}:</strong> {message.text}
+                </Typography>
+              </Paper>
             ))}
           </div>
         </Grid>
