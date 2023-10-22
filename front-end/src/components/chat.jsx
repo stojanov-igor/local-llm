@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Container, TextField, Button, Grid } from '@mui/material';
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -16,22 +17,38 @@ function Chat() {
   };
 
   return (
-    <div>
-      <div className="chat-container">
-        {messages.map((message, index) => (
-          <div key={index} className="chat-message">
-            {message.user}: {message.text}
+    <Container>
+      <Grid container>
+        <Grid item xs={12}>
+          <div className="chat-container">
+            {messages.map((message, index) => (
+              <div key={index} className="chat-message">
+                <strong>{message.user}:</strong> {message.text}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <input
-        type="text"
-        value={newMessage}
-        onChange={handleNewMessage}
-        placeholder="Type your message..."
-      />
-      <button onClick={sendMessage}>Send</button>
-    </div>
+        </Grid>
+        <Grid item xs={10}>
+          <TextField
+            fullWidth
+            variant="outlined"
+            value={newMessage}
+            onChange={handleNewMessage}
+            placeholder="Type your message..."
+          />
+        </Grid>
+        <Grid item xs={2}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={sendMessage}
+            style={{ height: '100%' }}
+          >
+            Send
+          </Button>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

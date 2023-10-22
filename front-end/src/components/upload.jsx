@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Input } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 function FileUpload() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -15,12 +16,40 @@ function FileUpload() {
   };
 
   return (
-    <div>
-      <Input type="file" onChange={handleFileChange} />
-      <Button onClick={handleUpload} variant="contained" color="primary">
-        Upload
-      </Button>
-    </div>
+    <Container>
+      <Typography variant="h5" component="h2">
+        File Upload
+      </Typography>
+      <input
+        accept="image/*"
+        style={{ display: 'none' }}
+        id="file-upload-input"
+        type="file"
+        onChange={handleFileChange}
+      />
+      <label htmlFor="file-upload-input">
+        <Button
+          variant="contained"
+          color="primary"
+          component="span"
+          startIcon={<CloudUploadIcon />}
+        >
+          Select File
+        </Button>
+      </label>
+      {selectedFile && (
+        <div>
+          <Typography>Selected File: {selectedFile.name}</Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleUpload}
+          >
+            Upload
+          </Button>
+        </div>
+      )}
+    </Container>
   );
 }
 
