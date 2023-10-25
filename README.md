@@ -4,6 +4,19 @@ Sample Node.js app that uses OpenAI to process local data using Langchain
 
 Medium Article: https://medium.com/@allenchun/feed-local-data-to-llm-using-langchain-node-js-fd7ac44093e9
 
+## Starting the Server
+
+To run the front-end, navigate to the its folder and run:
+
+```
+npm run start
+```
+The application will be started on port 3000
+
+To run the back-end, , navigate to the its folder and run:
+```
+node server.js
+```
 
 ### How it works
 - Langchain processes it by loading documents inside docs/ (In this case, we have a sample data.txt)
